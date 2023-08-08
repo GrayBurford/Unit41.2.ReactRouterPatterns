@@ -1,0 +1,26 @@
+
+
+.Nav {
+    background-color: black;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid white;
+}
+  
+.Nav a {
+    padding: 0.5em 0;
+    width: 7em;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+  
+.Nav a:hover {
+    background-color: lightskyblue;
+    color: white !important;
+}
+  
+.Nav a.active {
+    font-weight: bold;
+    color: royalblue;
+}
