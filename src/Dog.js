@@ -1,11 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
+
 
 function Dog ({ dogs }) {
     const { name } = useParams();
     const dog = dogs.filter(dog => dog.name === name)[0];
 
-    const facts = dog.facts.map(fact => <h4>{fact}</h4>)
+    const facts = dog.facts.map(fact => <h4 key={uuid()}>{fact}</h4>)
 
     return (
         <div>

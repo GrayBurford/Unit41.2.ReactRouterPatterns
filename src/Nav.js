@@ -1,14 +1,14 @@
 import React from 'react';
 import './Nav.css'
 import { NavLink, BrowserRouter } from 'react-router-dom';
-// import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { v4 as uuid } from 'uuid';
 
 function Nav ({ dogs }) {
     return (
         <nav className="Nav">
 
             {dogs.map(dog => 
-                <NavLink exact to={`/dogs/${dog}`}>
+                <NavLink key={uuid()} exact to={`/dogs/${dog}`}>
                     {dog}
                 </NavLink>
             )}
