@@ -1,0 +1,15 @@
+
+.Color {
+    height: 100vh;
+}
+
+.Color span {
+    font-size: 5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.Color a {
+    /* list-style-type: none; */
+    text-decoration: none;
+}

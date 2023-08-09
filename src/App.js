@@ -1,75 +1,104 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Nav from './Nav';
-import Routes from './Routes';
-import whiskey from './dogpics/whiskey.jpg'
-import duke from './dogpics/duke.jpg'
-import perry from './dogpics/perry.jpg'
-import tubby from './dogpics/tubby.jpg'
-import { v4 as uuid } from 'uuid';
 import { BrowserRouter } from 'react-router-dom';
+import ColorsRoutes from './ColorsRoutes';
 
+function App() {
+  const INITIAL_STATE = ['Red', 'Green', 'Blue'];
+  const [colors, setColors] = useState(INITIAL_STATE)
 
-function App({ dogs }) {
+  function addColor (newColor) {
+      setColors([...colors, newColor])
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav dogs={dogs.map(dog => dog.name)} />
-        <Routes dogs={dogs} />      
+        <ColorsRoutes addColor={addColor} colors={colors} />
       </BrowserRouter>
     </div>
   );
 }
 
-
-
-App.defaultProps = {
-  dogs: [
-    {
-      name: "Whiskey",
-      age: 5,
-      src: whiskey,
-      id : uuid(),
-      facts: [
-        "Whiskey loves eating popcorn.",
-        "Whiskey is a terrible guard dog.",
-        "Whiskey wants to cuddle with you!"
-      ]
-    },
-    {
-      name: "Duke",
-      age: 3,
-      src: duke,
-      id : uuid(),
-      facts: [
-        "Duke believes that ball is life.",
-        "Duke likes snow.",
-        "Duke enjoys pawing other dogs."
-      ]
-    },
-    {
-      name: "Perry",
-      age: 4,
-      src: perry,
-      id : uuid(),
-      facts: [
-        "Perry loves all humans.",
-        "Perry demolishes all snacks.",
-        "Perry hates the rain."
-      ]
-    },
-    {
-      name: "Tubby",
-      age: 4,
-      src: tubby,
-      id : uuid(),
-      facts: [
-        "Tubby is really stupid.",
-        "Tubby does not like walks.",
-        "Angelina used to hate Tubby, but claims not to anymore."
-      ]
-    }
-  ]
-}
-
 export default App;
+
+
+// *********************************
+// COMMENT ALL ABOVE, AND UNCOMMENT ALL BELOW TO TOGGLE DOGLIST APP
+// *********************************
+
+// import React from 'react';
+// import './App.css';
+// import Nav from './Nav';
+// import Routes from './Routes';
+// import whiskey from './dogpics/whiskey.jpg'
+// import duke from './dogpics/duke.jpg'
+// import perry from './dogpics/perry.jpg'
+// import tubby from './dogpics/tubby.jpg'
+// import { v4 as uuid } from 'uuid';
+// import { BrowserRouter } from 'react-router-dom';
+
+
+// function App({ dogs }) {
+//   return (
+//     <div className="App">
+//       <BrowserRouter>
+//         <Nav dogs={dogs.map(dog => dog.name)} />
+//         <Routes dogs={dogs} />      
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+
+
+
+// App.defaultProps = {
+//   dogs: [
+//     {
+//       name: "Whiskey",
+//       age: 5,
+//       src: whiskey,
+//       id : uuid(),
+//       facts: [
+//         "Whiskey loves eating popcorn.",
+//         "Whiskey is a terrible guard dog.",
+//         "Whiskey wants to cuddle with you!"
+//       ]
+//     },
+//     {
+//       name: "Duke",
+//       age: 3,
+//       src: duke,
+//       id : uuid(),
+//       facts: [
+//         "Duke believes that ball is life.",
+//         "Duke likes snow.",
+//         "Duke enjoys pawing other dogs."
+//       ]
+//     },
+//     {
+//       name: "Perry",
+//       age: 4,
+//       src: perry,
+//       id : uuid(),
+//       facts: [
+//         "Perry loves all humans.",
+//         "Perry demolishes all snacks.",
+//         "Perry hates the rain."
+//       ]
+//     },
+//     {
+//       name: "Tubby",
+//       age: 4,
+//       src: tubby,
+//       id : uuid(),
+//       facts: [
+//         "Tubby is really stupid.",
+//         "Tubby does not like walks.",
+//         "Angelina used to hate Tubby, but claims not to anymore."
+//       ]
+//     }
+//   ]
+// }
+
+// export default App;
